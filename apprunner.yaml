@@ -1,4 +1,4 @@
-version: 1.6
+version: 1.7
 runtime: python311
 build:
   commands:
@@ -6,10 +6,6 @@ build:
       - pip3 install -r requirements.txt
 run:
   runtime-version: 3.11
-  pre-run:
-    - pip3 install pipenv
-    - pipenv install
-    - python3 manage.py collectstatic
-  command: pipenv run gunicorn myproject.wsgi --log-file
+  command: sh startup.sh
   network:
     port: 8000

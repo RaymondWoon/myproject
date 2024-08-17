@@ -1,1 +1,2 @@
-python3 manage.py collectstatic && gunicorn --workers 2 myproject.wsgi
+#!/bin/bash
+python manage.py collectstatic && gunicorn --workers 2 myproject.wsgi
