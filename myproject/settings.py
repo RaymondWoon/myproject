@@ -46,10 +46,7 @@ SECRET_KEY = 'django-insecure-egu*pc44a_m34y2_*2he&%$4nqf-dju)j32j5g6cqh-5!$=(jn
 DEBUG = True
 
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = [
-    ".awsapprunner.com",
-    "127.0.0.1"
-]
+ALLOWED_HOSTS = [".awsapprunner.com"]
 
 # Application definition
 
