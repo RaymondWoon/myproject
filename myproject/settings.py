@@ -8,9 +8,16 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
+
+Amazon RDS 
+DB instance identifier: testdatabase-01
+Initial db name: testdatabase_01
+#AdvWeb07B!
+postgres 16.3
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +32,8 @@ SECRET_KEY = 'django-insecure-egu*pc44a_m34y2_*2he&%$4nqf-dju)j32j5g6cqh-5!$=(jn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [".awsapprunner.com"]
 
 # Application definition
 
@@ -36,6 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # custom apps
+    #'account',
+    #'blog',
+    
+    # 3rd party
+    #'rest_framework',
+    #'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -117,11 +133,21 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URLS ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework_simplejwt.authentication.JWTAuthentication',
+#    )
+#}
 
 STORAGES = {
     "default": {
